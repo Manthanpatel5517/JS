@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Javascript in Html</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1 id="title">Welcome to Red & White Skill Education.</h1>
+    <button onclick="changecolor()">change color</button>
+    <button onclick="" id="btn">Change Theme</button>
+
+
+    <!-- internal js -->
+     <script>
+        function changecolor(){
+            document.getElementById('title').style = "color : red";
+        }
+     </script>
+
+
+     <!-- external js -->
+     <script src="./app.js"></script>
+    
+</body>
+</html>
