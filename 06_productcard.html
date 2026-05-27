@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product card</title>
+</head>
+
+<body>
+    <div id="productcontainer"></div>
+
+
+
+    <script>
+        let product = {
+            Name: "Wireless Mouse",
+            Description: "Smooth and Fast Wireless Mouse",
+            Category: "Electronics",
+            Price: 499,
+            Stock: 0,
+            Image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsMVIRATz6ySkxEYCaYSedtGpvDyN_5crHAA&s",
+        }
+
+        let productcontainer = document.getElementById('productcontainer');
+
+        let text = product.stock > 0 ? `<span class="info">In stock</span>` : `<span class"danger>out of stock</span>"`;
+
+        productcontainer.innerHTML ='
+        `
+    </script>
+</body>
+
+</html>

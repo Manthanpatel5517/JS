@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product discount</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+        }
+        .container {
+            height: 250px;
+            width: 30%;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            background-color: rgb(98, 174, 221);
+        }
+
+        input {
+            width: 60%;
+            height: 20%;
+            font-size: large;
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+
+        button {
+            width: 35%;
+            height: 20%;
+            font-size: large;
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+        #info{
+            margin-top: 30px;
+        }
+        h3{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="number" id="amount" placeholder="Enter your purchase amount.">
+        <button onclick="applydiscount()">Apply Discount</button>
+
+        <div id="info"></div>
+    </div>
+
+    <script>
+        let customername = prompt("customer name");
+
+        function applydiscount() {
+            let amount = Number(document.getElementById('amount').value);
+            let discount = 10;
+
+            let discountAmount = (amount * discount) / 100;
+
+            let finalAmount = amount - discountAmount;
+
+            document.getElementById('info').innerHTML = `<h2>Customer Name:${customername}</h2>
+            <h3>Purchase amount:${amount}</h3>
+            <h3>discount amount:${discountAmount}</h3>
+            <h3>---------------------------------</h3>
+            <h3>final amount:${finalAmount}</h3>
+            `;
+
+        }
+    </script>
+</body>
+
+</html>

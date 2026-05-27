@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .container{
+            width: 420px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        }
+        input{
+            width: 100%;
+            padding: 10px 22px;
+            margin: 14px 0;
+        }
+        button{
+            padding: 12px 28px;
+            background-color: green;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a{
+            display: block;
+            margin: 4px 0;
+            text-decoration: none;
+        }
+        #msg{
+            margin-top: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="useremail" placeholder="Enter email">
+        <input type="text" id="userpassword" placeholder="Enter Password">
+        <a href="#">create an account?</a>
+        <button onclick="authlogin()">Login</button>
+        <h3 id="msg"></h3>
+    </div>
+
+    <script>
+        function authlogin(){
+            let useremail =document.getElementById('useremail').value;
+            let userpassword = document.getElementById('userpassword').value;
+
+            let msg ="";
+
+            let correctemail ="manthnapatel966@gmail.com";
+            let correctpassword = "12345678";
+
+            if(useremail === "" && userpassword ===""){
+                msg ="All field are required";
+            }
+            else if(useremail === correctemail && userpassword === correctpassword){
+                msg ="Login successfully";
+            }
+            else{
+                msg ="Incorrect useremail & userpassword.";
+            }
+            document.getElementById('msg').innerText = msg;
+        }
+    </script>
+</body>
+
+</html>
