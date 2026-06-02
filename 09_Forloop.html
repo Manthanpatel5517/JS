@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for loop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        #product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .card p:last-child {
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        .buy-btn {
+            margin-top: 12px;
+            padding: 10px 15px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            background-color: #ff5722;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .buy-btn:active {
+            transform: scale(0.97);
+        }
+
+        .title {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .title p {
+            margin: 14px auto;
+            width: 50%;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>Discover Amazing Products at Unbeatable Prices</h1>
+        <p>Browse our wide range of high-quality products, from electronics and fashion to accessories and home
+            essentials. Shop with confidence and find everything you need in one place.</p>
+    </div>
+    <div id="product-container">
+
+    </div>
+    <script src="./forloop.js"></script>
+    <script>
+        let card = "";
+        for (i = 0; i < products.length; i++) {
+            card += `
+             <div class="card">
+            <img src=${products[i].image} alt="">
+            <h3>${products[i].name}</h3>
+            <p>${products[i].description}</p>
+            <p>${products[i].price}</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>`;
+        }
+        document.getElementById('product-container').innerHTML = card;
+    </script>
+</body>
+
+</html>
