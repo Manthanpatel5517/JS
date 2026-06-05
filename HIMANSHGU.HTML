@@ -1,0 +1,130 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { loginSuccess } from '../redux/actions/authActions';
+
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated || localStorage.getItem('isAuthenticated') === 'true') {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+
+    // Client-side validations
+    if (!username.trim() || !password.trim()) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    // Authenticate with hardcoded credentials
+    if (username === 'admin' && password === 'hims123') {
+      dispatch(loginSuccess(username));
+      navigate('/');
+    } else {
+      setError('Invalid username or password.');
+    }
+  };
+
+  return (
+    <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light login-page-bg">
+      <div className="row w-100 justify-content-center">
+        <div className="col-12 col-md-6 col-lg-4">
+          <div className="card shadow-lg border-0 rounded-4 overflow-hidden">
+            <div className="card-header bg-primary text-white text-center py-4 border-0 position-relative">
+              <div className="mb-2">
+                <i className="bi bi-mortarboard-fill fs-1"></i>
+              </div>
+              <h3 className="fw-bold mb-0">Hims Academy</h3>
+              <p className="text-white-50 small mb-0">Student Portal Control Panel</p>
+            </div>
+            
+            <div className="card-body p-4 p-md-5">
+              <h4 className="text-center text-secondary fw-semibold mb-4">Administrator Login</h4>
+              
+              {error && (
+                <div className="alert alert-danger d-flex align-items-center border-0 rounded-3" role="alert">
+                  <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                  <div>{error}</div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="mb-3">
+                  <label htmlFor="usernameInput" className="form-label text-muted fw-semibold small">
+                    Username
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-white border-end-0">
+                      <i className="bi bi-person text-muted"></i>
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control border-start-0 ps-0"
+                      id="usernameInput"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Enter admin username"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="passwordInput" className="form-label text-muted fw-semibold small">
+                    Password
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-white border-end-0">
+                      <i className="bi bi-lock text-muted"></i>
+                    </span>
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      className="form-control border-start-0 border-end-0 ps-0"
+                      id="passwordInput"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter password"
+                      required
+                    />
+                    <button
+                      type="button"
+                      className="input-group-text bg-white border-start-0"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      <i className={`bi bi-eye${showPassword ? '-slash' : ''} text-muted`}></i>
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" className="btn btn-primary w-100 py-2.5 rounded-3 fw-bold shadow-sm">
+                  Sign In
+                </button>
+              </form>
+            </div>
+
+            <div className="card-footer bg-white border-0 text-center py-3 text-muted small">
+              {/* <span className="text-muted-50">Demo Credentials: </span> */}
+              {/* <strong>admin</strong> / <strong>admin123</strong> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

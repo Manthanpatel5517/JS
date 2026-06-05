@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>for of loop</title>
+    <style>
+
+        #main-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            gap: 80px;
+            margin-top: 30px;
+            border-radius: 30px;
+            box-shadow: 0px 4px 8px rgba(187,8,8,0.1);
+        }
+        .image img {
+            width: 100%;
+            height: 400px;
+            margin-left: 60px;
+            margin-top: 20px;
+            border-radius: 30px;
+        }
+        .detail {
+            padding-top: 50px;
+        }
+        .detail h3{
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-container">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xEkToHEm5bU3ZZcIWCz3mJ53HX-j2WIeuA&s"
+                alt="">
+        </div>
+        <div class="detail">
+            <h2>ZEBRONICS Storm Wired Ear Headphone with 3.5mm Jack,<br> Built-in Microphone for Calling,Adjustable
+                Headband(Black)</h2>
+            <p>Rating:3.7<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+            </p>
+            <h3>price:4999</h3>
+            <ul id="key">Key-Feauture</ul>
+
+        </div>
+    </div>
+    <script>
+        const product = [
+            "About this item",
+            "Enjoy long hours of music from the uniquely styled headband- the ZEB-Storm which comes in white color so you can match your outfit just the way you like",
+            "This travel music companion is easily compatible with mobile and tablets. All you need to do is connect it to your device and keep enjoying your all-time favorite music",
+            "Get yourself immersed in incredible music emitted by this headband which has powerful drivers of size 40mm producing crystal clear music and thumping sound",
+            "Your long hours of music jamming sessions can go on uninterrupted as this headband comes with soft ear cushions and can be adjusted to your desired size.",
+            "This headband can be conveniently plugged into your device as it comes with a 3.5mm line input connector and a 1.5m long cable",
+            "The trouble-free calling function is possible with ZEB-Storm as it comes with in-line MIC through which you can have chit-chat anytime.",
+        ];
+
+        let data="";
+
+        for(const products of product){
+            data +=`<li>${products}</li>`;
+        }
+        document.getElementById('key').innerHTML = data;
+    </script>
+</body>
+
+</html>
