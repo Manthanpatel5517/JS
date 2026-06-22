@@ -1,35 +1,5 @@
 const products = [
   {
-    name: "Classic White T-Shirt",
-    price: "₹499",
-    description: "Soft cotton white t-shirt, perfect for daily wear.",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-  },
-  {
-    name: "Black Hoodie",
-    price: "₹1299",
-    description: "Warm and stylish black hoodie for winter.",
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7"
-  },
-  {
-    name: "Denim Jacket",
-    price: "₹1999",
-    description: "Trendy blue denim jacket for casual outings.",
-    image: "https://images.unsplash.com/photo-1543076447-215ad9ba6923"
-  },
-  {
-    name: "Checked Shirt",
-    price: "₹799",
-    description: "Comfortable checked shirt for everyday style.",
-    image: "https://images.unsplash.com/photo-1603252109303-2751441dd157"
-  },
-  {
-    name: "Formal Shirt",
-    price: "₹999",
-    description: "Slim fit formal shirt for office wear.",
-    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10"
-  },
-  {
     name: "Casual T-Shirt",
     price: "₹599",
     description: "Lightweight casual t-shirt for summer.",

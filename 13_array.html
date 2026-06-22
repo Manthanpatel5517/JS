@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array in java script</title>
+</head>
+<body>
+    <ul id="view">
+
+    </ul>
+    <script>
+        const Emp_name = ["Darshil patel","Dhruv patel","Chintal dama","Kevin patel","Nayan patel"];
+
+        // document.write("My Emp-name is:",Emp_name[1]);
+        // console.log(Emp_name);
+
+        // push - add Element at last
+        // Emp_name.push("manthan patel");
+
+        // unshift- chage last to first name
+        // Emp_name.unshift("Nayan patel");
+
+        // remove change thayel name
+        // Emp_name.shift("Nayan patel");
+
+        // remove - zero index to  two name
+        // Emp_name.splice(0,2);
+
+        // Add- names
+        // console.log(Emp_name.slice(0,5));
+
+
+
+        // let data="";
+        // for(let Emp_list of Emp_name){
+        //     data += `<li>${Emp_list}</li>`
+        // }
+        // document.getElementById("view").innerHTML = data;
+
+
+
+        const Numbers =[2,4,5,8,7];
+
+        // const newnumbers = Numbers.map((n)=> n* 2);
+        const newNumbers = Numbers.filter((n)=> n % 2 == 0 );
+        console.log(newNumbers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product managment</title>
+    <link rel="stylesheet" href="productstyle.css">
+</head>
+
+<body>
+    <table>
+        <caption>
+            <h1>Product Managment</h1>
+        </caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="productTable"></tbody>
+    </table>
+
+    <div class="form-container">
+        <input type="text" placeholder="Enter your Name:" id="name">
+        <input type="text" placeholder="Enter your Description:" id="description">
+        <input type="text" placeholder="Enter your price:" id="price">
+        <input type="text" placeholder="Enter your category:" id="category">
+        <input type="text" placeholder="Enter your Img URL:" id="image">
+        <button onclick="addproducts()" id="btn">Add Product</button>
+    </div>
+
+    <script src="./products.js"></script>
+    <script>
+        const displayproduct = () => {
+            const productTable = document.getElementById("productTable");
+            productTable.innerHTML = "";
+
+            products.forEach((product) => {
+                productTable.innerHTML += `
+            <tr>
+                <td>${product.id}</td>
+                <td><img src="${product.image}" alt"${product.image}"></td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.category}</td>
+                <td>${product.price}</td>
+                <td><button onclick="editproduct(${product.id})">Edit</button>
+                    <button onclick="deleteproduct(${product.id})"class="btn2">Delete</button></td>
+                </tr>`;
+            })
+        }
+
+        let editid ="";
+
+        const addproducts = () => {
+            let name = document.getElementById("name").value;
+            let description = document.getElementById("description").value;
+            let price = document.getElementById("price").value;
+            let category = document.getElementById("category").value;
+            let image = document.getElementById("image").value;
+
+            if (editid) {
+                const product = products.find((p) => p.id == editid);
+
+                product.name = name;
+                product.description = description;
+                product.price = price;
+                product.category = category;
+                product.image = image;
+
+                editid = null;
+                alert("Product Added Successfully.");
+                displayproduct();
+                clearproduct();
+
+            }
+
+            else {
+                const newproduct = {
+                    id: products.length + 1,
+                    name,
+                    description,
+                    price: Number(price),
+                    category,
+                    image,
+                }
+            }
+
+            products.push(newproduct);
+
+            displayproduct();
+        }
+
+        const editproduct = (id) => {
+            const product = products.find((p) => p.id == id);
+
+            editid = product.id;
+
+            document.getElementById("name").value = product.name;
+            document.getElementById("description").value = product.description;
+            document.getElementById("price").value = product.price;
+            document.getElementById("category").value = product.category;
+            document.getElementById("image").value = product.image;
+            document.getElementById("btn").innerText = "Update Product";
+
+        }
+
+        const deleteproduct = (id) => {
+            const index = products.findIndex((p) => p.id == id);
+
+            confirm("Are you Sure? Want to delete this product.");
+            products.splice(index,1);
+            alert("Product deleted successfully.");
+            displayproduct();
+
+        }
+
+        const clearproduct = () =>{
+            document.getElementById("name").value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("category").value = "";
+            document.getElementById("image").value = "";
+            document.getElementById("btn").innerText = "Add Product";
+        }
+
+
+
+
+        displayproduct();
+
+    </script>
+
+
+</body>
+
+</html>

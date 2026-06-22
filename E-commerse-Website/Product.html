@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">">
+</head>
+<body>
+     <div class="top-bar">
+        <div class="left">
+            <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png" alt="">
+        </div>
+        <div class="center">
+            <a href="#">Home</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Baby Collection</a>
+            <a href="#">Pages</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="right">
+            <i class="bi bi-search"></i>
+            <i class="bi bi-person"></i>
+            <i class="bi bi-bag-check"></i>
+        </div>
+    </div>
+    <div class="sale">
+        <p>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</p>
+        <a href="#">Shop now</a>
+    </div>
+
+    <div id="product-container"></div>
+
+    <script src="./product.js"></script>
+
+    <script>
+
+        let card = "";
+
+        for (let i = 0; i < products.length; i++) {
+            card += `
+            <div class="data">
+            <img src="${products[i].image}" alt="">
+            <h2>${products[i].name}</h2>
+            <h3>${products[i].price}</h3>
+            <p>${products[i].description}</p>
+            <button>View Detail</button>
+            </div>
+            `;
+        }
+        document.getElementById('product-container').innerHTML = card;
+
+    </script>
+</body>
+</html>

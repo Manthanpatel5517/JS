@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cuppon code</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .data{
+            /* background-color: black; */
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            width: 30%;
+        }
+        #code{
+            padding: 10px 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+        
+        }
+        #code:hover{
+            background-color: blue;
+            color: white;
+            font-weight: 700;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="data">
+        <h1 id="text">Enter your Cupponcode</h1>
+    <button id="code">Reedem Now</button>
+
+    <h2 id="Result"></h2>
+
+    </div>
+    
+
+    <script>
+
+        const code = document.getElementById('code');
+        code.addEventListener('click',verify_cuppon);
+
+
+        function verify_cuppon(){
+            const cupponcode = "xyz123abc123";
+            const max_attempts = 3;
+            let attempts = 0;
+            let user_cuppon = "";
+
+            do{
+                user_cuppon = prompt(`Enter Your cuppon_code${attempts} /${max_attempts}:`);
+                attempts++;
+
+                if(user_cuppon === cupponcode){
+                    document.getElementById('Result').innerHTML="Congratulations you get 40% Discount!.";
+                    return;
+                }
+            }while(attempts < max_attempts && user_cuppon != cupponcode);
+        }
+    </script>
+</body>
+</html>
