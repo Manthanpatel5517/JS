@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo1">My Profile</h1>
+    <h2 class="demo2">Hello Manthan </h2>
+    <h2 class="demo2">Hello Darshil</h2>
+    <h2 class="demo2">Hello Chintal</h2>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic pariatur neque placeat repudiandae totam maiores nobis ducimus quo corrupti dolorem!</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam rem neque, minus in fuga?</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, voluptate eum placeat facilis ut reprehenderit architecto rem veniam facere neque.</p>
+
+    <button id="btn">Change Image</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ86El1H_M_9VKzXoZPlbOWbl9CKG7U_lSv5g&s" alt="" id="img">
+
+    <div id="data"></div>
+
+    <script>
+        document.getElementById("demo1").innerText = "Every Profile";
+        document.getElementById("demo1").style = "Color:red";
+
+        document.getElementsByClassName("demo2")[0].innerHTML = "Hello Chintal";
+        document.getElementsByClassName("demo2")[0].style = "color:blue";
+
+        document.getElementsByClassName("demo2")[2].innerHTML = "Hello Manthan";
+
+        document.getElementsByTagName('p')[0].innerHTML = "<h1>Hello My name is manthan patel.</h1>";
+
+        document.getElementsByTagName('p')[1].innerHTML = "<h1>Hello My name is Darshil patel.</h1>";
+
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener('click',()=>{
+            document.getElementById('img').src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ioh3WnW1Qu1MEOasU1HIA_Me3WhWKe1MLA&s"
+        })
+        
+        const title = document.createElement("h1");
+        title.innerText = "Welcome to my profile.";
+        title.classList.add("title");
+
+
+        const data = document.getElementById('data');
+        data.appendChild(title);
+    </script>
+</body>
+</html>
