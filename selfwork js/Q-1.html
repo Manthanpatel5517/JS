@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 90px;
+            height: 70px;
+        }
+        .btn{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Product Table</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="product-table"></tbody>
+    </table>
+
+    <script>
+        let products = [
+            {
+                id: 1,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/a/h/j/-original-imahgnf4dp5tfjhm.jpeg",
+                name: "Wireless Headphones",
+                description: "Bluetooth headphones with noise cancellation",
+                price: 2499,
+                category: "Electronics",
+                action: "Buy Now"
+            },
+            {
+                id: 2,
+                image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSFpXX3lM7w5VvAlrasOO6unxYx29IQo9FZg9OQvx5I-tJt9iAYG8NfUO3ivJw6uL54j3w8PNcJAnM2E4dosi6jgsTZdOuTYyRxASUoGoF5hjGN5rKC4ZWk0pU",
+                name: "Running Shoes",
+                description: "Lightweight and comfortable shoes",
+                price: 1999,
+                category: "Footwear",
+                action: "Buy Now"
+            },
+            {
+                id: 3,
+                image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSj92CfcsgxS48hLyCAPh88Cjos9GB8mUfWofD3kV_0iqrwn9fF1Ay1qSII3eIKWg-uhw6m_hG2ERjotbhsXgR8GTESAuwL0yLHlGn8K6E",
+                name: "Sofa",
+                description: "Premium fabric 3-seater sofa",
+                price: 15999,
+                category: "Furniture",
+                action: "Buy Now"
+            },
+            {
+                id: 4,
+                image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRakIt4X2YVwCX84PeC8b7iv6EKnfKKv9i5tHKeJ0mmXdl-m-6ZhrJu4c8mq1hcX1ywYg8Xdtfc9-F97E2tICZGRvy9RcurW0rGSILNnHopEXY_cd_f8JsZBg",
+                name: "Wrist Watch",
+                description: "Classic analog watch for men",
+                price: 1299,
+                category: "Accessories",
+                action: "Buy Now"
+            },
+            {
+                id: 5,
+                image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQwx-7J8snKoCy2nVht3S3-B57tBwpM7KooszkziV36zMSrMKJ9_-sWVSlgvlmV-EfYLJFlFvkNPJ35wkz9wmoMKAyuaPx2DeYslHTz1xrbbFo_sv55g6F1qrE",
+                name: "Backpack",
+                description: "Strong bag with multiple compartments",
+                price: 899,
+                category: "Bags",
+                action: "Buy Now"
+            }
+        ];
+
+        let data = "";
+
+        products.forEach((product) => {
+            data += `
+            <tr>
+                <td>${product.id}</td>
+                <td><img src="${product.image}"></td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+                <td>${product.category}</td>
+                <td><button class="btn">${product.action}</button></td>
+            </tr>
+            `;
+        });
+
+        document.getElementById('product-table').innerHTML = data;
+    </script>
+
+</body>
+
+</html>

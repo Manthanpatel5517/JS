@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product forms</title>
+</head>
+<style>
+     h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+        }
+</style>
+<body>
+    <caption>
+        <h1>Product Management System</h1>
+    </caption>
+
+    <div class="form">
+        <input type="text" id="name" placeholder="Enter Product Name">
+
+        <input type="text" id="description" placeholder="Enter Product Description">
+
+        <input type="number" id="price" placeholder="Enter Product Price">
+
+        <input type="text" id="category" placeholder="Enter Product Category">
+
+        <input type="text" id="image" placeholder="Enter your img URL">
+        <button>Add Product</button>
+
+        <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="product-table"></tbody>
+    </table>
+    </div>
+
+    <script>
+        let products = [
+            {
+                id: 1,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/a/h/j/-original-imahgnf4dp5tfjhm.jpeg",
+                name: "Wireless Headphones",
+                description: "Bluetooth headphones with noise cancellation",
+                price: 2499,
+                category: "Electronics",
+                action: "Buy Now"
+            },
+            {
+                id: 2,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/8/w/j/8-rso287-red-tape-white-original-imagz7xqg7g9zjhg.jpeg",
+                name: "Running Shoes",
+                description: "Lightweight and comfortable shoes",
+                price: 1999,
+                category: "Footwear",
+                action: "Buy Now"
+            },
+            {
+                id: 3,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/sofa-sectional/z/v/o/right-facing-royal-blue-polyester-6-seater-original-imagz8f3gkqzghgh.jpeg",
+                name: "Sofa",
+                description: "Premium fabric 3-seater sofa",
+                price: 15999,
+                category: "Furniture",
+                action: "Buy Now"
+            },
+            {
+                id: 4,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/watch/f/u/j/1-analog-watch-men-original-imagpghwxyz.jpeg",
+                name: "Wrist Watch",
+                description: "Classic analog watch for men",
+                price: 1299,
+                category: "Accessories",
+                action: "Buy Now"
+            },
+            {
+                id: 5,
+                image: "https://rukminim2.flixcart.com/image/612/612/xif0q/backpack/u/j/z/30-school-bag-original-imagzxyhxyz.jpeg",
+                name: "Backpack",
+                description: "Strong bag with multiple compartments",
+                price: 899,
+                category: "Bags",
+                action: "Buy Now"
+            }
+        ];
+
+            let data = "";
+
+        function displayproduct(){
+            
+
+        products.forEach((product) => {
+            data += `
+            <tr>
+                <td>${product.id}</td>
+                <td><img src="${product.image}"></td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+                <td>${product.category}</td>
+                <td><button>${product.action}</button></td>
+            </tr>
+            `;
+        });
+        }
+
+        
+        displayproduct();
+        document.getElementById('product-table').innerHTML=data;
+    </script>
+
+
+</body>
+</html>
